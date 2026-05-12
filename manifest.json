@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Cognitive Friction",
+  "version": "0.3.0",
+  "description": "Think before you ask.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+    "https://claude.ai/*",
+    "https://chatgpt.com/*",
+    "https://gemini.google.com/*",
+    "https://api.anthropic.com/*",
+    "https://api.openai.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://claude.ai/*", "https://chatgpt.com/*", "https://gemini.google.com/*"],
+      "js": ["content.js"],
+      "css": ["overlay.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Cognitive Friction"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

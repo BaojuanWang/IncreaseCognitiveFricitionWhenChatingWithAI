@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 260px; background: #111; color: #e0e0e0;
+      font-family: Georgia, serif; padding: 22px;
+    }
+    .eyebrow {
+      font-family: 'Courier New', monospace; font-size: 10px;
+      letter-spacing: .15em; text-transform: uppercase; color: #555; margin-bottom: 4px;
+    }
+    h1 { font-size: 18px; font-weight: normal; color: #e0e0e0; font-style: italic; margin-bottom: 22px; }
+    label {
+      display: block; font-family: 'Courier New', monospace; font-size: 10px;
+      letter-spacing: .1em; text-transform: uppercase; color: #555; margin-bottom: 6px;
+    }
+    input[type="password"] {
+      width: 100%; background: #1a1a1a; border: 1px solid #222; border-radius: 8px;
+      color: #e0e0e0; font-family: 'Courier New', monospace; font-size: 12px;
+      padding: 9px 11px; outline: none; transition: border-color .15s;
+    }
+    input:focus { border-color: #3a3a3a; }
+    button {
+      width: 100%; margin-top: 10px; background: #ddd; border: none; border-radius: 8px;
+      color: #111; cursor: pointer; font-family: 'Courier New', monospace;
+      font-size: 11px; font-weight: 700; letter-spacing: .06em; padding: 9px;
+      transition: background .15s;
+    }
+    button:hover { background: #fff; }
+    .status { font-family: 'Courier New', monospace; font-size: 10px; color: #5a9; margin-top: 8px; text-align: center; min-height: 14px; }
+    hr { border: none; border-top: 1px solid #1e1e1e; margin: 18px 0; }
+    .note { font-size: 11px; color: #444; line-height: 1.6; font-family: 'Courier New', monospace; }
+    .platforms { color: #333; font-size: 10px; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <div class="eyebrow">Cognitive Friction</div>
+  <h1>Think before you ask.</h1>
+  <label>Anthropic API Key</label>
+  <input type="password" id="key" placeholder="sk-ant-…">
+  <button id="save">Save</button>
+  <div class="status" id="st"></div>
+  <hr>
+  <div class="note">
+    Works on:<br>
+    <span class="platforms">Claude · ChatGPT · Gemini</span>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

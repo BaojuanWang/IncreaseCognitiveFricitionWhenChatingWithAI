@@ -1,0 +1,126 @@
+/* Cognitive Friction v2 */
+
+.cf-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  z-index: 2147483647;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity .2s ease;
+}
+.cf-backdrop.cf-visible { opacity: 1; }
+.cf-backdrop.cf-fade-out { opacity: 0; }
+
+.cf-card {
+  background: #141414;
+  border: 1px solid #2a2a2a;
+  border-radius: 18px;
+  padding: 28px 30px;
+  width: 500px; max-width: 92vw;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.7);
+  font-family: Georgia, serif;
+  transform: translateY(10px); transition: transform .2s ease;
+}
+.cf-backdrop.cf-visible .cf-card { transform: translateY(0); }
+
+.cf-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 18px;
+}
+.cf-label {
+  font-family: 'Courier New', monospace;
+  font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #666;
+}
+.cf-x {
+  background: none; border: none; color: #444; cursor: pointer;
+  font-size: 18px; padding: 0; line-height: 1; transition: color .15s;
+}
+.cf-x:hover { color: #aaa; }
+
+.cf-loading {
+  display: flex; align-items: center; gap: 10px;
+  color: #555; font-family: 'Courier New', monospace; font-size: 12px;
+  padding: 12px 0;
+}
+.cf-spinner {
+  width: 16px; height: 16px; border: 2px solid #333;
+  border-top-color: #888; border-radius: 50%;
+  animation: cf-spin .7s linear infinite;
+}
+@keyframes cf-spin { to { transform: rotate(360deg); } }
+
+.cf-question {
+  font-size: 17px; line-height: 1.55; color: #ddd;
+  margin: 0 0 14px; font-style: italic;
+}
+
+.cf-outline {
+  list-style: none; padding: 0; margin: 0 0 18px;
+}
+.cf-outline li {
+  font-size: 13px; color: #777; padding: 4px 0 4px 16px;
+  position: relative; font-family: 'Courier New', monospace;
+  border-left: 2px solid #2a2a2a; margin-bottom: 4px;
+}
+
+.cf-textarea {
+  width: 100%; background: #0d0d0d;
+  border: 1px solid #222; border-radius: 10px;
+  color: #ddd; font-family: Georgia, serif; font-size: 14px;
+  line-height: 1.5; padding: 12px 14px; resize: none; outline: none;
+  box-sizing: border-box; transition: border-color .15s;
+}
+.cf-textarea:focus { border-color: #3a3a3a; }
+.cf-textarea::placeholder { color: #3a3a3a; }
+
+.cf-actions {
+  display: flex; gap: 10px; justify-content: flex-end; margin-top: 14px;
+}
+.cf-btn-ghost {
+  background: none; border: 1px solid #2a2a2a; border-radius: 8px;
+  color: #555; cursor: pointer; font-family: 'Courier New', monospace;
+  font-size: 11px; letter-spacing: .04em; padding: 8px 14px;
+  transition: all .15s;
+}
+.cf-btn-ghost:hover { border-color: #444; color: #888; }
+.cf-btn-primary {
+  background: #e0e0e0; border: none; border-radius: 8px;
+  color: #111; cursor: pointer; font-family: 'Courier New', monospace;
+  font-size: 11px; font-weight: 700; letter-spacing: .06em; padding: 8px 18px;
+  transition: background .15s;
+}
+.cf-btn-primary:hover { background: #fff; }
+.cf-btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+
+/* Choice options */
+.cf-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 4px; }
+.cf-option {
+  background: #0d0d0d; border: 1px solid #2a2a2a; border-radius: 10px;
+  color: #bbb; cursor: pointer; font-family: Georgia, serif; font-size: 14px;
+  padding: 10px 14px; text-align: left; transition: all .15s;
+}
+.cf-option:hover:not(:disabled) { border-color: #444; color: #e0e0e0; }
+.cf-option:disabled { cursor: default; }
+.cf-option.cf-correct { border-color: #3a7a3a; color: #6ecf6e; background: #0d1f0d; }
+.cf-option.cf-wrong { border-color: #7a2a2a; color: #cf6e6e; background: #1f0d0d; }
+
+/* Feedback */
+.cf-feedback {
+  font-family: 'Courier New', monospace; font-size: 13px;
+  padding: 10px 14px; border-radius: 8px; margin-top: 12px;
+}
+.cf-fb-ok { background: #0d1f0d; color: #6ecf6e; border: 1px solid #3a7a3a; }
+.cf-fb-err { background: #1f0d0d; color: #cf6e6e; border: 1px solid #7a2a2a; }
+
+/* Floating quiz button */
+#cf-quiz-btn {
+  position: fixed; bottom: 76px; right: 16px;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: #141414; border: 1px solid #2a2a2a;
+  font-size: 20px; cursor: pointer; z-index: 99998;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  transition: all .2s ease;
+}
+#cf-quiz-btn:hover { transform: scale(1.1); border-color: #444; }
+#cf-quiz-btn:disabled { opacity: .4; cursor: not-allowed; transform: none; }
