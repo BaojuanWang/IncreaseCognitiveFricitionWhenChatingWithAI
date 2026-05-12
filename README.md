@@ -1,0 +1,2 @@
+# IncreaseCognitiveFricitionWhenChatingWithAI
+self-developed extension
